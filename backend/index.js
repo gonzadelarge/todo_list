@@ -8,23 +8,15 @@ const dotenv = require("dotenv");
 const app = express();
 
 
-auth.useStrategies();
+const indexRoutes = require('../backend/src/routes/index.routes');
+const todoRoutes = require("../backend/src/routes/todo.routes");
 
-const indexRoutes = require('./routes/index.routes');
-const todoRoutes = require("./routes/todo.routes");
-
-const db = require('./config/db.config');
+const db = require('../backend/src/config/db.config');
 db.connect();
 
 const PORT = process.env.PORT || 4000
 
-// let corsOptions = {
-//     origin:`http://localhost:${PORT}`
-// }
-
 dotenv.config();
-
-app.use(cors(corsOptions))
 
 app.use(express.static(path.join(__dirname, 'public')));
 
