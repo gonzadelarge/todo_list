@@ -1,0 +1,52 @@
+.todos {
+
+    width: 100%;
+    margin: 50px auto;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        width: 80px;
+        margin-top: 10px;
+        margin-right: 5px;
+        padding: 3px;
+        border-radius: 3px;
+
+        background-color: #4f96d8;
+        color: white;
+
+        cursor: pointer;
+    }
+
+    &__card {
+        position: relative;
+        
+        width: 28%;
+        padding: 30px;
+        margin: 20px;
+        height: 250px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background-color: #d5ebff;
+    }
+
+    &__date {
+        font-size: 12px;
+    }
+
+    &__done {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+
+        width: 30px;
+        height: 30px;
+        background-color: #9bcdfc;
+    }
+}

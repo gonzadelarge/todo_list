@@ -3,7 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const dotenv = require("dotenv");
 const app = express();
-
+const cors = require('cors');
 
 const indexRoutes = require('../backend/src/routes/index.routes');
 const todoRoutes = require("../backend/src/routes/todo.routes");
@@ -14,6 +14,14 @@ db.connect();
 const PORT = process.env.PORT || 4000
 
 dotenv.config();
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Origin', '*')
+    next();
+  });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
